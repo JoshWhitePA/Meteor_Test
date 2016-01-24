@@ -1,14 +1,30 @@
 <head>
-  <title>ChkSheetPRG</title>
+  <title>Todo List</title>
 </head>
-
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  <div class="container">
+    <header>
+      <h1>CheckSheet</h1>
+    </header>
+      <table>
+        <tr>
+          <th>Class ID</th>
+          <th>Description</th>
+          <th>Credit Hours</th>
+        </tr>
+        {{#each class}}
+          {{> checkItem}}
+        {{/each}}
+      </table>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="checkItem">
+
+  <tr>
+    <td>{{classID}}</td>
+    <td>{{classDesc}}</td>
+    <td>{{creditHour}}</td>
+  </tr>
+
 </template>
