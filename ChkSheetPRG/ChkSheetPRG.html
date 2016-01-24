@@ -1,5 +1,5 @@
 <head>
-  <title>Todo List</title>
+  <title>Class List</title>
 </head>
 <body>
   <div class="container">
@@ -7,12 +7,13 @@
       <h1>CheckSheet</h1>
     </header>
       <table>
-        <tr>
+        <tr class="left">
           <th>Class ID</th>
           <th>Description</th>
-          <th>Credit Hours</th>
+          <th class="center">Credit Hours</th>
+          <th class="center">Grade</th>
         </tr>
-        {{#each class}}
+        {{#each coreClass}}
           {{> checkItem}}
         {{/each}}
       </table>
@@ -24,7 +25,9 @@
   <tr>
     <td>{{classID}}</td>
     <td>{{classDesc}}</td>
-    <td>{{creditHour}}</td>
+    <td class="center">{{creditHour}}</td>
+    <td class="center">{{grade}}</td>
+
   </tr>
 
 </template>

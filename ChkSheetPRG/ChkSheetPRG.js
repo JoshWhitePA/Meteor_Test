@@ -7,7 +7,10 @@ if (Meteor.isClient) {
   // This code only runs on the client
 
     Template.body.helpers({
-        class:[{classID:"CSC-355",classDesc:"Talk about junk", creditHour:"3"}]
+        coreClass:function(){
+          return CoreClass.find();
+        }
+        // [{classID:"CSC-355",classDesc:"Talk about junk", creditHour:"3",grade:"-"}]
     });
 }
 
