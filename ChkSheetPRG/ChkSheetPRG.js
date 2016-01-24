@@ -1,23 +1,29 @@
 
 
 CoreClass = new Mongo.Collection("coreClass");
-
-
+counts = 0;
 if (Meteor.isClient) {
   // This code only runs on the client
 
     Template.body.helpers({
         coreClass:function(){
-          return CoreClass.find();
+          return CoreClass.find();;
+        },
+        countera:function(){
+          var count = CoreClass.find().count();
+          count += - CoreClass.find({grade: "-"}).count();
+          count = count * 3;
+          console.log(count);
+          return count;
         }
-        // [{classID:"CSC-355",classDesc:"Talk about junk", creditHour:"3",grade:"-"}]
+
     });
+
 }
 
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // CoreClass.insert({ClassID:"1",ClassDesc:"stuff",CreditHour:"3"});
     // code to run on server at startup
   });
 }
